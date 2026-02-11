@@ -95,7 +95,7 @@ echo "TARGET_DEVICE: $TARGET_DEVICE"
 
 if [ $KSU_ENABLE -eq 1 ]; then
     echo "KSU is enabled"
-    curl -LSs "https://github.com/liyafe1997/SukiSU-Ultra/raw/4ff14cf0051d04209c4abd5027d99d8e7780ef5b/kernel/setup.sh" | bash -s f4863b20cc8dc0f8cc67418980f022e43014b598
+    curl -LSs "curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s v1.1.1"
 else
     echo "KSU is disabled"
 fi
@@ -110,8 +110,8 @@ echo "Clone AnyKernel3 for packing kernel (repo: https://github.com/liyafe1997/A
 git clone https://github.com/liyafe1997/AnyKernel3 -b kona --single-branch --depth=1 anykernel
 
 # Add date to local version
-local_version_str="-perf"
-local_version_date_str="-$(date +%Y%m%d)-${GIT_COMMIT_ID}-perf"
+local_version_str="-a15"
+local_version_date_str="-$(date +%Y%m%d)-${GIT_COMMIT_ID}-a15"
 
 sed -i "s/${local_version_str}/${local_version_date_str}/g" arch/arm64/configs/${TARGET_DEVICE}_defconfig
 
